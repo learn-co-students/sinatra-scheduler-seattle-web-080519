@@ -1,0 +1,12 @@
+<h1>Scheduled Courses</h1>
+<ul>
+  <% @courses.each do |course| %>
+    <li>
+      <p><%= course.name %> with Professor <%= course.professor %></p>
+      <p>Credits: <%= course.credits %></p>
+    </li>
+  <% end %>
+</ul>
+<h3>Total Credits: <%= @total_credits %></h3>
+
+<a href="/courses">View List of Courses</a>
