@@ -8,7 +8,7 @@ class SchedulesController < ApplicationController
     erb :'/schedule/index'
   end
 
-  post '/schedule/:id' do
+  patch '/schedule/:id' do
     @course = Course.find(params[:id])
     @courses = Course.where(on_schedule: true)
     @total_credits = @courses.inject(0) {|sum, course| sum + course.credits}
