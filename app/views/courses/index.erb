@@ -1,0 +1,15 @@
+<h1>View all Courses</h1>
+<% @courses.each do |course| %>
+  <a href="/course/<%= course.id %>"><%= course.name %> </a><br>
+  <% if @courses_on_schedule.include?(course.id) %>
+    <form style="margin-right:10px" action="/schedule/<%= course.id %>/delete" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Remove from Schedule">
+    </form>
+  <% else %>
+    <form style="margin-right:10px" action="/schedule/<%= course.id %>" method="POST">
+      <input type="hidden" name="_method" value="PATCH">
+      <input type="submit" value="Add to Schedule">
+    </form>
+  <% end %>
+<% end %>

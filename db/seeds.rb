@@ -1,3 +1,6 @@
+require "pry"
+Course.destroy_all
+
 courses = [
   {
     name: 'Transfiguration',
@@ -57,3 +60,15 @@ courses = [
     credits: 1
   }
 ]
+
+# def create_courses(courses)
+#   courses.each do |course|
+#     Course.create([{name: "#{course[:name]}", professor: "#{course[:professor]}", credits: "#{course[:credits]}"}])
+#   end
+# end
+
+# create_courses(courses)
+
+courses.each {|course| Course.create(course)}
+
+puts "Seeds done!"
